@@ -36,7 +36,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
   const formattedDate = new Date(user.dob.date).toLocaleDateString();
 
   return (
-    <div className="border rounded-lg p-4 shadow-lg w-64 flex flex-col items-center justify-center bg-white relative">
+    <div className="border rounded-lg p-4 shadow-lg w flex flex-col items-center justify-center bg-white relative">
       <Image
         src={user.picture.large}
         alt={`${user.name.first} ${user.name.last}`}
@@ -48,10 +48,10 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         <div className="flex space-x-6 mt-4 ">
           <UserAttributeIcon icon={<FaUser />} attribute="name" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaEnvelope />} attribute="email" setHoveredAttribute={setHoveredAttribute} />
+          <UserAttributeIcon icon={<FaBirthdayCake />} attribute="birthday" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaMapMarkerAlt />} attribute="address" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaPhone />} attribute="phone" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaLock />} attribute="password" setHoveredAttribute={setHoveredAttribute} />
-          <UserAttributeIcon icon={<FaBirthdayCake />} attribute="birthday" setHoveredAttribute={setHoveredAttribute} />
         </div>
         <div className="mt-4">
           {hoveredAttribute === 'name' && (
