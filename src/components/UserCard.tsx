@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { FaUser, FaEnvelope, FaMapMarkerAlt, FaPhone, FaLock } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaMapMarkerAlt, FaPhone, FaLock, FaBirthdayCake } from 'react-icons/fa';
 import UserAttributeIcon from './UserAttributeIcon';
 
 interface User {
@@ -51,6 +51,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
           <UserAttributeIcon icon={<FaMapMarkerAlt />} attribute="address" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaPhone />} attribute="phone" setHoveredAttribute={setHoveredAttribute} />
           <UserAttributeIcon icon={<FaLock />} attribute="password" setHoveredAttribute={setHoveredAttribute} />
+          <UserAttributeIcon icon={<FaBirthdayCake />} attribute="birthday" setHoveredAttribute={setHoveredAttribute} />
         </div>
         <div className="mt-4">
           {hoveredAttribute === 'name' && (
@@ -81,6 +82,12 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
             <div className="text-center">
                 <h1 className="text-xl font-semibold">My password is</h1>
               <p className="text-gray-600">{`${user.login.password}`}</p>
+            </div>
+          )}
+          {hoveredAttribute === 'birthday' && (
+            <div className="text-center">
+                <h1 className="text-xl font-semibold">My birthday is</h1>
+              <p className="text-gray-600">{formattedDate}</p>
             </div>
           )}
         </div>

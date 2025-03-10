@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useRandomUser } from '../hooks/useRandomUser';
 import UserCard from '../components/UserCard';
 

@@ -61,7 +61,11 @@ export const useRandomUser = () => {
         const data = await response.json();
         setUser(data.results[0]);
       } catch (err) {
-        setError('Failed to fetch user');
+        if (err instanceof Error) {
+          setError(`Failed to fetch user: ${err.message}`);
+        } else {
+          setError('Failed to fetch user: Unknown error');
+        }
       } finally {
         setLoading(false);
       }
